@@ -1,6 +1,6 @@
-<H3>NAME: MUTHULAKSHMI D</H3>
-<H3>REG NO: 212223040122</H3>
-<H3>EX NO: 1</H3>
+### NAME: MUTHULAKSHMI D
+### REG NO: 212223040122
+## EX NO: 1
 
 # Data Cleaning Process
 
@@ -25,404 +25,228 @@ STEP 6: Use zscore of to remove outliers
 
 # Coding and Output
 
-# SAMPLEIDS FILE
 ```
 import pandas as pd
-df=pd.read_csv('SAMPLEIDS.csv')
+df=pd.read_csv('/content/SAMPLEIDS.csv')
 df
 ```
-
-![image](https://github.com/user-attachments/assets/eb7cf3ae-d65f-4854-93c5-d8cb9e8ee498)
-
-
+# Output
+![image](https://github.com/user-attachments/assets/36307fbd-d4b0-4dac-aaf6-1467310e7cf4)
 
 ```
-
-import pandas as pd
-df=pd.read_csv('SAMPLEIDS.csv')
-df.shape
-```
-
-![image](https://github.com/user-attachments/assets/42f2b0b1-cda9-4f63-9162-572a6172611b)
-
-```
-import pandas as pd
-df=pd.read_csv('SAMPLEIDS.csv')
-df
-df.info()
-```
-![image](https://github.com/user-attachments/assets/e6242f6a-cb2a-4667-8606-0f484ee1a2a1)
-
-
-```
-import pandas as pd
-df=pd.read_csv('SAMPLEIDS.csv')
-print(df)
-print(df.describe())
-```
-
-![image](https://github.com/user-attachments/assets/a8822e4a-2c92-47fe-9da7-94789ce03eab)
-
-
-```
-import pandas as pd
-df=pd.read_csv('SAMPLEIDS.csv')
-df
 df.head(5)
 ```
 
-
-![image](https://github.com/user-attachments/assets/c000d7ee-c32a-4097-8d3c-1923ff115f7f)
-
+# Output
+![image](https://github.com/user-attachments/assets/c2a7cfad-f829-468d-934e-812d04306c29)
 
 ```
-import pandas as pd
-df=pd.read_csv('SAMPLEIDS.csv')
-df
 df.tail(5)
 ```
+# Output
 
-![image](https://github.com/user-attachments/assets/2462da49-ca5e-4c0b-8a0f-bc31cf0d7448)
-
-```
-import pandas as pd
-df=pd.read_csv('SAMPLEIDS.csv')
-df
-df.isnull().sum()#display how many missing values
-```
-
-![image](https://github.com/user-attachments/assets/945b2078-3b02-4723-a7a0-f045a0f201d3)
+![image](https://github.com/user-attachments/assets/157c9451-912a-4653-bfc3-f4e592be267f)
 
 ```
-import pandas as pd
-df=pd.read_csv('SAMPLEIDS.csv')
+df.info()
+```
+
+# Output
+
+![image](https://github.com/user-attachments/assets/d698be08-0eeb-4e3b-a339-47b3733530a9)
+
+```
+df.describe()
+```
+
+# Output
+
+![image](https://github.com/user-attachments/assets/f2215ca3-d85a-42cd-a5bd-b5153cf57619)
+
+```
+df.shape
+```
+
+# Output
+
+![image](https://github.com/user-attachments/assets/dcd29ddf-8d04-452a-ab79-d44be5c3f09c)
+
+
+```
+df.isnull().sum()
+```
+
+
+# Output
+
+![image](https://github.com/user-attachments/assets/693f398c-ac69-45d3-b92e-8aa66efed65f)
+
+```
 df.nunique()
 ```
 
-![image](https://github.com/user-attachments/assets/d6ebe003-e58b-454e-ba30-2c3b24b66fca)
+# Output
+
+![image](https://github.com/user-attachments/assets/9f01c03a-e23d-45a7-8bee-545626976864)
+
 
 ```
-import pandas as pd
-df=pd.read_csv('SAMPLEIDS.csv')
+mn=df.TOTAL.mean()
+mn
+```
+
+# Output
+
+![image](https://github.com/user-attachments/assets/86088890-1885-44c2-84e6-94b2ff53b9b0)
+
+```
 df['GENDER'].value_counts()
 ```
 
-![image](https://github.com/user-attachments/assets/f22d805b-a8b2-4747-8407-1ac03687bfc2)
+# Output
+
+![image](https://github.com/user-attachments/assets/5bd009b9-5cba-4c73-9356-37700429779f)
 
 ```
-import pandas as pd
-df=pd.read_csv('SAMPLEIDS.csv')
-x=df.dropna(how='any')
-print(x)
+df.TOTAL.fillna(mn,inplace=True)
+df.M4.fillna(0)
 ```
 
-![image](https://github.com/user-attachments/assets/b2767b12-064c-44fb-8762-1b1fc4794b91)
+# Output
+
+![image](https://github.com/user-attachments/assets/1331a09e-608f-4bc0-abb8-ffb647a29c5d)
 
 ```
-import pandas as pd
-df=pd.read_csv('SAMPLEIDS.csv')
-x2=df.dropna(how='all').shape
+min=df.M4.min()
+min
+```
+
+# Output
+![image](https://github.com/user-attachments/assets/736e4a06-509e-4f3b-8331-87cba715a706)
+
+```
+df.M4.fillna(min,inplace=True)
 df
 ```
 
-![image](https://github.com/user-attachments/assets/8de88373-2f4d-479d-b97f-d8a93f3f6f05)
+# Output
+
+![image](https://github.com/user-attachments/assets/0c201304-ba5a-4dc8-a8d2-1abd3a2d3d90)
 
 
 ```
-import pandas as pd
-df=pd.read_csv('SAMPLEIDS.csv')
-tot=df.dropna(subset=['TOTAL'],how='any')
-tot
-```
-![image](https://github.com/user-attachments/assets/cb430686-3d53-425a-8824-c76e8b05fa1c)
-
-```
-import pandas as pd
-df=pd.read_csv('SAMPLEIDS.csv')
-s=df.fillna(0)
-s
-```
-![image](https://github.com/user-attachments/assets/22c02525-3eaf-4471-a015-f1c563c10959)
-
-```
-import pandas as pd
-df=pd.read_csv('SAMPLEIDS.csv')
-s=df.fillna(method='ffill')
-s
-```
-
-![image](https://github.com/user-attachments/assets/261dd8c3-e66c-4b2d-8bc0-84cca12bd31c)
-
-
-```
-import pandas as pd
-df=pd.read_csv('SAMPLEIDS.csv')
-df.isna().sum()
-```
-
-![image](https://github.com/user-attachments/assets/61a2e010-f0c1-45d0-b02a-a9dc53581484)
-
-```
-import pandas as pd
-df=pd.read_csv('SAMPLEIDS.csv')
-df['M1']
-```
-
-![image](https://github.com/user-attachments/assets/7894fea7-e321-47b0-a2d9-7d2949c7bd60)
-
-
-```
-import pandas as pd
-df=pd.read_csv('SAMPLEIDS.csv')
 df.isnull()
 ```
 
-![image](https://github.com/user-attachments/assets/7a680651-20d9-4851-b220-8ac0e743dde5)
+# Output
 
-```
-import pandas as pd
-df=pd.read_csv('SAMPLEIDS.csv')
-x1=df.dropna(axis=0)
-x1
-```
+![image](https://github.com/user-attachments/assets/e4b29ed5-51b1-4b8c-b323-70ab5b48c564)
 
-![image](https://github.com/user-attachments/assets/5ebc48d6-1828-4cd6-a17f-b22f30297697)
-
-
-```
-import pandas as pd
-df=pd.read_csv('SAMPLEIDS.csv')
-df.notnull().sum()
-```
-
-![image](https://github.com/user-attachments/assets/73bafb89-7333-4b71-b2aa-015a831b358e)
-
-```
-import pandas as pd
-df=pd.read_csv('SAMPLEIDS.csv')
-m=df.drop_duplicates(inplace=False)
-m
-```
-
-![image](https://github.com/user-attachments/assets/0667a151-0cba-4321-87e5-9128d9ef034b)
-
-
-```
-import pandas as pd
-df=pd.read_csv('SAMPLEIDS.csv')
-import seaborn as sns
-sns.heatmap(df.isnull(),yticklabels=False,annot=True)
-
-```
-
-![image](https://github.com/user-attachments/assets/f3eba1af-371d-4637-9a2e-ffee26cabd4b)
-
-```
-import pandas as pd
-df=pd.read_csv('SAMPLEIDS.csv')
-df.dropna(inplace=True)
-sns.heatmap(df.isnull(),yticklabels=False,annot=True)
-```
-
-![image](https://github.com/user-attachments/assets/f39ec641-97fb-43a0-b4a9-eb45b1e61f19)
-
-
-```
-import pandas as pd
-df=pd.read_csv('SAMPLEIDS.csv')
-print(df.loc[0:3])
-```
-
-![image](https://github.com/user-attachments/assets/31cd52ab-503e-492c-a53e-81334ae070dd)
 
 ```
 import pandas as pd
 import seaborn as sns
-import numpy as np
 age=[1,3,28,27,25,92,30,39,40,50,26,24,29,94]
 af=pd.DataFrame(age)
 af
 ```
 
-![image](https://github.com/user-attachments/assets/b43fd4e3-ba51-4114-876b-ee49e1f69868)
+# Output
 
+![image](https://github.com/user-attachments/assets/2714632c-84d4-46b1-8be9-7075c5e2bdae)
 
 ```
 sns.boxplot(data=af)
 ```
 
-![image](https://github.com/user-attachments/assets/66e0bf5a-b5c9-4687-ab1d-24d6a81fc2bd)
+# Output
 
-
-```
-sns.boxenplot(data=af)
-```
-
-![image](https://github.com/user-attachments/assets/18ae56de-ff38-4227-afee-11d564393e6f)
+![image](https://github.com/user-attachments/assets/78ec4cda-1aca-490a-baa1-2a2e67ce8e17)
 
 ```
+sns.scatterplot(data=af)
+```
 
+# Output
+
+![image](https://github.com/user-attachments/assets/b7d144d7-8591-46d5-a582-93eb511020a7)
+
+```
 q1=af.quantile(0.25)
 q2=af.quantile(0.5)
 q3=af.quantile(0.75)
 iqr=q3-q1
-iqr#inte rcontile reduction
-q1=np.percentile(af,25)
-q3=np.percentile(af,75)
-IQR = q3-q1
-IQR
-lower_bound = q1 - 1.5 * IQR
-lower_bound
-upper_bound = q3 + 1.5 *IQR
-upper_bound
-outliers = [x for x in age if x < lower_bound or x > upper_bound]
-outliers
-
+iqr
 ```
 
-![image](https://github.com/user-attachments/assets/eb625697-5315-4532-9a69-80c1951e69c7)
+# Output
 
+![image](https://github.com/user-attachments/assets/1252fa9f-f6a8-4fa9-b1af-6107947ef145)
 
 ```
-af=af[((af>=lower_bound)&(af<=upper_bound))]
-af# outliers values are replaced by nan
+low=q1-1.5*iqr
+low
 ```
 
+# Output
 
-![image](https://github.com/user-attachments/assets/a71c7e76-cf8b-48df-a4bd-b5dd468947a4)
+![image](https://github.com/user-attachments/assets/e9937ee2-1905-4fcc-8257-30349d7d24ab)
+
+```
+high=q3+1.5*iqr
+high
+```
+
+# Output
+
+![image](https://github.com/user-attachments/assets/f94fef2d-3cc0-4f10-8fec-b968f8256694)
+
+```
+af=af[((af>=low)&(af<=high))]
+af
+```
+
+# Output
+
+![image](https://github.com/user-attachments/assets/779c9288-d0d6-401b-9493-f735619b57ac)
+
+```
+af.dropna()
+```
+
+# Output
+
+![image](https://github.com/user-attachments/assets/9d8a4906-f79a-4694-a882-281a2bfdee76)
 
 ```
 sns.boxplot(data=af)
 ```
 
-![image](https://github.com/user-attachments/assets/492b5370-f91e-409f-b11f-4afb1d4fb1ad)
+# Output
 
-# IRIS FILE
-```
-id=pd.read_csv("iris.csv")
-id
-```
-
-![image](https://github.com/user-attachments/assets/63ef7b47-3e37-4330-b0db-f6eede94974c)
-
+![image](https://github.com/user-attachments/assets/9be7913f-900e-4341-95c5-a9062b5bd66e)
 
 ```
-
-sns.boxplot(x='sepal_width',data=id)
-```
-
-
-
-![image](https://github.com/user-attachments/assets/69be9396-a23c-448a-8ac0-51bcef529b76)
-
-```
-c1=id.sepal_width.quantile(0.25)
-c3=id.sepal_width.quantile(0.75)
-iq=c3-c1
-print(c3)
-
-```
-
-
-![image](https://github.com/user-attachments/assets/113c87cb-0d5e-4509-b4e9-70ed2164e9c2)
-
-```
-
-rid=id[((id.sepal_width<(c1-1.5*iq))|(id.sepal_width>(c3+1.5*iq)))]
-rid['sepal_width']
-```
-
-![image](https://github.com/user-attachments/assets/b5cfc339-1607-47d9-b74b-07ff03fb2408)
-
-```
-delid=id[~((id.sepal_width<(c1-1.5*iq))|(id.sepal_width>(c3+1.5*iq)))]
-delid
-```
-
-
-![image](https://github.com/user-attachments/assets/347edbf5-4f76-4e4f-9f43-8ff182994a8f)
-
-
-```
-
-sns.boxplot(x='sepal_width',data=delid)
-
-```
-
-
-![image](https://github.com/user-attachments/assets/26149c4f-d82a-4e52-ad51-87dbbb8bae15)
-
-```
-lower_bound = c1 - 1.5 * iq
-lower_bound
-upper_bound = c3 + 1.5 *iq
-upper_bound
-```
-
-![image](https://github.com/user-attachments/assets/c2b396eb-c602-4334-8fbf-c835797e1247)
-
-
-![image](https://github.com/user-attachments/assets/04c02270-e7d0-4c82-8429-e2b9345ca34a)
-
-
-# ACTIVITY
-
-```
-
-import pandas as pd 
-df =pd.read_csv('bank_train (1).csv')
+data=[1,12,15,18,21,24,27,20,33,36,39,42,45,48,51,54,57,60,63,66,69,72,75,78,81,84,87,90,93,96,99,158]
+df=pd.DataFrame(data)
 df
 ```
 
-![image](https://github.com/user-attachments/assets/2722ddea-d28a-4368-b869-db762e0e072c)
+# Output
 
-
-
-```
-df.loc[(df['education']=='primary')&(df['deposit']=='yes')]
-#select the rows where clients with primary education have subscribed to a deposit?
-```
-
-![image](https://github.com/user-attachments/assets/5386fc52-b46f-43c4-b759-27183364e3e4)
-
+![image](https://github.com/user-attachments/assets/64e22172-c7a9-41d6-9ff7-571c14ee0e7f)
 
 ```
-df.loc[(df['deposit']=='no')]
-#select the rows where the client who have not subscribed to a deposit?
+import numpy as np
+from scipy import stats
+z=np.abs(stats.zscore(df))
+z
 ```
-![image](https://github.com/user-attachments/assets/058a01a9-4322-4c6d-9304-c5e340d61415)
+# Output
+
+![image](https://github.com/user-attachments/assets/fe5f8dbb-f92e-4947-a0da-3427c31926c0)
 
 
-```
-df.loc[(df['deposit']=='yes')&((df['housing']=='yes')|(df['loan']=='yes'))]
-# select the rows where clients who have subscribed to a deposit either have a housing or a personal loan?
-```
-
-![image](https://github.com/user-attachments/assets/9a7a14ff-ac52-4823-8a71-c752fc0b771d)
-
-
-```
-df.loc[(df['education']=='secondary')&(df['deposit']=='no')]
-#select the rows where clients with secondary education who have not subscribed to a deposit?
-```
-
-![image](https://github.com/user-attachments/assets/b926aee1-7cb6-42ab-b425-715251460a37)
-
-
-```
-#select the rows where  clients who have subscribed to a term deposit as an outcome of the successful marketing campaign? 
-df.loc[(df['poutcome']=='success')&(df['deposit']=='yes')]
-```
-
-![image](https://github.com/user-attachments/assets/2015af51-cc50-48b1-af07-95b9996177e1)
-
-
-```
-#select the rows where unemployed clients who have not subscribed to deposit?
-df.loc[(df['job']=='unemployed')&(df['deposit']=='no')]
-```
-
-![image](https://github.com/user-attachments/assets/4a6a2597-ac19-4d44-a136-c647e7e7494d)
 
 
 # Result
