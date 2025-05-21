@@ -1,6 +1,6 @@
 ### NAME: MUTHULAKSHMI D
 ### REG NO: 212223040122
-## EX NO: 1
+## EX NO : 1
 
 # Data Cleaning Process
 
